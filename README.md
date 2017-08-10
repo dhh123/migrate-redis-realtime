@@ -7,10 +7,12 @@
 * click==4.0
 * progressbar==2.3
 * python-redis==2.10.3
+
 ### 使用介绍
 ./migrate_redis_realtime.py --monitor="`monitor_host:monitor_port`" "`source_host:source_port`" "`dest_host:dest_port`"
 可选参数 `--flush` ，表示导入之前先将 dest_host中的数据清空
 demo:
+
 ```
   ./migrate_redis_realtime.py --monitor="127.0.0.1:6379" "127.0.0.1:6380" "127.0.0.1:6381"
    解释：实时回放(monitor): 127.0.0.1:6379 新进来的数据，扫描127.0.0.1:6380里面所有db里面的数据,并且导入到127.0.0.1:6381数据库中
