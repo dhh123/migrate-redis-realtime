@@ -12,9 +12,12 @@
 ./migrate_redis_realtime.py --monitor="`monitor_host:monitor_port`" "`source_host:source_port`" "`dest_host:dest_port`"
 可选参数 `--flush` ，表示导入之前先将 dest_host中的数据清空
 demo:
-
-```
-  ./migrate_redis_realtime.py --monitor="127.0.0.1:6379" "127.0.0.1:6380" "127.0.0.1:6381"
+> ./migrate_redis_realtime.py --monitor="127.0.0.1:6379" "127.0.0.1:6380" "127.0.0.1:6381"
    解释：实时回放(monitor): 127.0.0.1:6379 新进来的数据，扫描127.0.0.1:6380里面所有db里面的数据,并且导入到127.0.0.1:6381数据库中
-   建议：monitor redis和源redis使用不同的实例，因为 monitor 会降低dest redis一半的性能
-```
+
+### 建议
+  monitor redis和源redis使用不同的实例，因为 monitor 会降低src redis一半的性能
+
+### 参考
+1. https://gist.github.com/thomasst/afeda8fe80534a832607
+2. https://github.com/Qihoo360/pika/tree/master/tools/pika_monitor 
